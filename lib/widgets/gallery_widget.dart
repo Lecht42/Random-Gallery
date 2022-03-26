@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gallery/entities/raw_item.dart';
 import 'item_widget.dart';
 
-
 class Gallery extends StatelessWidget {
   late List<ItemData> items;
 
@@ -11,9 +10,7 @@ class Gallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 20.0),
       itemCount: items.length,
       itemBuilder: (BuildContext context, int index) => Item(data: items[index]),
     );

@@ -12,7 +12,9 @@ class GalleryPage extends StatefulWidget {
 }
 
 class _GalleryPageState extends State<GalleryPage> {
+
   late List<ItemData> _items = Model.data;
+  late bool _isLoading;
 
   @override
   initState() {
@@ -21,10 +23,15 @@ class _GalleryPageState extends State<GalleryPage> {
     refreshItems();
   }
 
-  refreshItems() async {
+  void refreshItems() async {
+    setState(() => _isLoading = true);
+
     await Model.refreshData();
 
-    setState(() => _items = Model.data);
+    setState(() {
+      _items = Model.data;
+      _isLoading = false;
+    });
   }
 
   @override
@@ -32,7 +39,7 @@ class _GalleryPageState extends State<GalleryPage> {
         appBar: AppBar(
           title: const Text('Random Gallery'),
         ),
-        body: FutureBuilder(builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) => Gallery(items: _items)),
+        body: _isLoading ? const Center(child: CircularProgressIndicator()) : Gallery(items: _items),
         floatingActionButton: FloatingActionButton(
           tooltip: 'Refresh',
           onPressed: () => refreshItems(),
