@@ -3,9 +3,5 @@ class ItemData {
   final String imgFull;
   final String author;
 
-  ItemData ({
-    required this.img,
-    required this.imgFull,
-    required this.author
-  });
+  ItemData({required this.img, required this.imgFull, required this.author});
 }

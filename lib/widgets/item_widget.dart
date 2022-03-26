@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:gallery/entities/raw_item.dart';
 
@@ -29,7 +27,7 @@ class Item extends StatelessWidget {
           ),
           Text(data.author,
               style: const TextStyle(
-                  color: Colors.white, shadows: [Shadow(color: Colors.black, offset: Offset(1.4, 1.4))]))
+                  color: Colors.white, shadows: [Shadow(color: Colors.black, offset: Offset(1.4, 1.4))])),
         ],
       ),
     );

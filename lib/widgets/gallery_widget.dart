@@ -3,9 +3,9 @@ import 'package:gallery/entities/raw_item.dart';
 import 'item_widget.dart';
 
 class Gallery extends StatelessWidget {
-  late List<ItemData> items;
+  final List<ItemData> items;
 
-  Gallery({Key? key, required this.items}) : super(key: key);
+  const Gallery({Key? key, required this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
