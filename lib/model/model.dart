@@ -5,10 +5,6 @@ import 'api/api_controller.dart';
 class Model {
   static late List<ItemData> data = [];
 
-  Model() {
-    refreshData();
-  }
-
   static Future<void> refreshData() async {
     data = await ApiController.instance.loadContent();
   }
